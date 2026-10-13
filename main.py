@@ -141,10 +141,10 @@ def bot_reply(ticket: dict, text: str) -> dict:
     for intent, _, reply in INTENTS:
         if intent == ticket["category"] and reply != "__ESCALATE__":
             return {"reply": reply.format(status=order.get("status", "processing")), "escalated": False}
-    return {"reply": "Mujhe pura samajh nahi aaya 🙏 Kya aap thoda detail me bata sakte ho? "
-                     "Ya 'agent' likho to human support se connect kar dunga.", "escalated": False}
+    return {"reply": "I'm sorry, I didn't fully understand. 🙏 Could you please explain in a little more detail?"
+                     "Or type 'agent' to connect with human support.", "escalated": False  
 
-
+            
 # ------------------------------------------------------------ ENDPOINTS ---
 @app.get("/health")
 def health():
